@@ -75,7 +75,7 @@ public class Player : MonoBehaviour
         Turn(mousePosition);
         DrawCursor(mousePosition);      
 
-        if (shield.GetComponent<Shield>().IsActive()) DrainShield();
+        if (shield.active) DrainShield();
     }
 
     void OnTriggerEnter(Collider collider)
@@ -110,6 +110,8 @@ public class Player : MonoBehaviour
             else
                 Debug.Log("Tried to recive damage from the same bullet more than once");
         else if (collider.gameObject.GetComponent<Enemy>())
+            BeKilled();
+        else if (collider.gameObject.GetComponent<DoorScript>())
             BeKilled();
         else
             Debug.Log("Unknown collider");

@@ -7,7 +7,7 @@ public class Shield : MonoBehaviour
 {
     private Vector3 velocity;
 
-    private bool active;
+    public bool active;
 
     void Start()
     {
@@ -27,10 +27,15 @@ public class Shield : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        Vector3 normal = transform.forward;
-        Vector3 reflected = Vector3.Reflect(collider.GetComponent<BulletScript>().normalizedDirection*(10^6), normal).normalized;
-        reflected.y = 0;
-        collider.gameObject.GetComponent<BulletScript>().SetTarget(reflected);
+        if (collider.GetComponent<BulletScript>())
+        {
+            Vector3 normal = transform.forward;
+            Vector3 reflected = Vector3.Reflect(collider.GetComponent<BulletScript>().normalizedDirection * (10 ^ 6), normal).normalized;
+            reflected.y = 0;
+            collider.gameObject.GetComponent<BulletScript>().SetTarget(reflected);
+            collider.gameObject.GetComponent<BulletScript>().reflected = true;
+            collider.gameObject.GetComponent<BulletScript>().ChangeTexture();
+        }
     }
 
 

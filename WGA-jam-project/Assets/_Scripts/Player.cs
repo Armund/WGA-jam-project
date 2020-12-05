@@ -40,7 +40,6 @@ public class Player : MonoBehaviour
         
         health = maxHealth;
         energy = maxEnergy;
-		Debug.Log(GameUI.instance);
 		GameUI.instance.UpdateHP(health);
 		GameUI.instance.UpdateEnergy(energy);
 
@@ -119,6 +118,7 @@ public class Player : MonoBehaviour
         else
             Debug.Log("Unknown collider");
 		GameUI.instance.UpdateHP(health);
+		GameUI.instance.UpdateEnergy(energy);
 	}
 
     private void BeKilled()

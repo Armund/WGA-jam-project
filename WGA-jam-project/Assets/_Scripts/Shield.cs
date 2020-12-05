@@ -30,6 +30,8 @@ public class Shield : MonoBehaviour
         Vector3 reflected = Vector3.Reflect(collider.GetComponent<BulletScript>().normalizedDirection*(10^6), normal).normalized;
         reflected.y = 0;
         collider.gameObject.GetComponent<BulletScript>().SetTarget(reflected);
+        collider.gameObject.GetComponent<BulletScript>().reflected = true;
+        collider.gameObject.GetComponent<BulletScript>().ChangeTexture();
     }
 
 

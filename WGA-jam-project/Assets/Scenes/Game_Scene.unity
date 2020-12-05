@@ -227,6 +227,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameIU
       objectReference: {fileID: 0}
+    - target: {fileID: 630901112305974862, guid: bd6c8559be0313744b04a672bc271297,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 681924701}
     - target: {fileID: 630901112305974898, guid: bd6c8559be0313744b04a672bc271297,
         type: 3}
       propertyPath: m_Pivot.x

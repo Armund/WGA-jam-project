@@ -370,6 +370,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8898713044146422888, guid: 84108dafe97bc92428e71051e2e0b667,
         type: 3}
+      propertyPath: amountToDrop
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8898713044146422888, guid: 84108dafe97bc92428e71051e2e0b667,
+        type: 3}
       propertyPath: startTimeBtwShots
       value: 0.5
       objectReference: {fileID: 0}

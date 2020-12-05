@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     public float movementAreaRadius = 50f;
     public float movementAreaCenterX;
     public float movementAreaCenterZ;
+    public int amountToDrop;
 
     private float dist;
     private Vector3 targetPos;
@@ -101,8 +102,9 @@ public class Enemy : MonoBehaviour
 
 
 
-    public void DropEnergy() {
-        gameController.CreateEnergySphere(transform.position + Random.insideUnitSphere);
+    public void DropEnergy(int amount) {
+        for (int i = 0; i < amount; ++i)
+            gameController.CreateEnergySphere(transform.position + Random.insideUnitSphere);
     }
 
     public void TakeDamage(float dmg) {
@@ -110,9 +112,7 @@ public class Enemy : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            DropEnergy();
-            DropEnergy();
-            DropEnergy();
+            DropEnergy(amountToDrop);
             Destroy(gameObject);
         }
 

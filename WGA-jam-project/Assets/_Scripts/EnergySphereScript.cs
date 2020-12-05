@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnergySphereScript : MonoBehaviour
 {
     public float energyAmount;
+    public float hpAmount;
 
     public bool notPicked;
 

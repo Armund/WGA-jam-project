@@ -81,6 +81,7 @@ public class Enemy : MonoBehaviour
             GameObject bullet = Instantiate(bulletPrefab, gameObject.transform.GetChild(1).position, transform.rotation); //TODO change second argument for actual enemy models
             bullet.GetComponent<BulletScript>().SetInitTarget(playerTransform.position);
             timeBtwShots = startTimeBtwShots;
+			SoundManager.instance.PlaySound(SoundManager.Sounds.SHOT);
         }
         else {
 
@@ -117,6 +118,7 @@ public class Enemy : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+			SoundManager.instance.PlaySound(SoundManager.Sounds.ENEMY_EXPLOSION);
             DropEnergy(amountToDrop);
             Destroy(gameObject);
         }

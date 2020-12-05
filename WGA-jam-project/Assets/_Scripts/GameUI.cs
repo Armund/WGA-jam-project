@@ -23,6 +23,7 @@ public class GameUI : MonoBehaviour
         if (instance == null) {
 			instance = this;
 		}
+		SoundManager.instance.PlaySound(SoundManager.Sounds.MAIN_THEME);
     }
 
 	protected void Awake() {

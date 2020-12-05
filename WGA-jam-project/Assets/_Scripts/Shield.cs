@@ -29,6 +29,7 @@ public class Shield : MonoBehaviour
         Vector3 normal = transform.forward;
         Vector3 reflected = Vector3.Reflect(collider.GetComponent<BulletScript>().normalizedDirection*(10^6), normal).normalized;
         reflected.y = 0;
+		SoundManager.instance.PlaySound(SoundManager.Sounds.SHIELD_REFLECTION);
         collider.gameObject.GetComponent<BulletScript>().SetTarget(reflected);
         collider.gameObject.GetComponent<BulletScript>().reflected = true;
         collider.gameObject.GetComponent<BulletScript>().ChangeTexture();
@@ -42,12 +43,14 @@ public class Shield : MonoBehaviour
 
 	public void Activate()
     {
+		SoundManager.instance.PlaySound(SoundManager.Sounds.SHIELD);
         active = true;
     }
 
 	public void Disactivate()
     {
-        active = false;
+		SoundManager.instance.StopSound(SoundManager.Sounds.SHIELD);
+		active = false;
     }
 
     public bool IsActive()

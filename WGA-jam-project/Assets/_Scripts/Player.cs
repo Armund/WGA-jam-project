@@ -40,8 +40,10 @@ public class Player : MonoBehaviour
         
         health = maxHealth;
         energy = maxEnergy;
+		GameUI.instance.UpdateHP(health);
+		GameUI.instance.UpdateEnergy(energy);
 
-        playerControls.Enable();
+		playerControls.Enable();
         playerControls.Player.Look.performed += LookHandler;
         playerControls.Player.Look.Enable();
         playerControls.Player.Move.performed += MoveHandler;
@@ -116,7 +118,8 @@ public class Player : MonoBehaviour
             BeKilled();
         else
             Debug.Log("Unknown collider");
-    }
+		GameUI.instance.UpdateHP(health);
+	}
 
     private void BeKilled()
     {
@@ -186,6 +189,7 @@ public class Player : MonoBehaviour
     private void DrainShield()
     {
         energy -= energyDrain * Time.deltaTime;
+		GameUI.instance.UpdateEnergy(energy);
         if (energy <= 0)
         {
             energy = 0;

@@ -46,6 +46,7 @@ public class BulletScript : MonoBehaviour
     public void Damage()
     {
         notDamaged = false;
+		SoundManager.instance.PlaySound(SoundManager.Sounds.BULLET_DESTROY);
         Destroy(gameObject);
     }
 

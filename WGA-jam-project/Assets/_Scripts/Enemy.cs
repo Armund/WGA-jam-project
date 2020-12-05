@@ -82,6 +82,7 @@ public class Enemy : MonoBehaviour
             Vector3 targetPosFixY = new Vector3(playerTransform.position.x, 1, playerTransform.position.z);
             bullet.GetComponent<BulletScript>().SetInitTarget(targetPosFixY);
             timeBtwShots = startTimeBtwShots;
+			SoundManager.instance.PlaySound(SoundManager.Sounds.SHOT);
         }
         else {
 
@@ -118,6 +119,7 @@ public class Enemy : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+			SoundManager.instance.PlaySound(SoundManager.Sounds.ENEMY_EXPLOSION);
             DropEnergy(amountToDrop);
             Destroy(gameObject);
         }

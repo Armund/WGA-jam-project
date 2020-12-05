@@ -6,7 +6,7 @@ public class Shield : MonoBehaviour
 {
     private Vector3 velocity;
 
-    private bool active;
+    public bool active;
 
     void Start()
     {

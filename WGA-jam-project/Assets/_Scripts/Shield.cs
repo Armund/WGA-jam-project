@@ -15,7 +15,6 @@ public class Shield : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("col");
         ReflectProjectile(collision.rigidbody, collision.contacts[0].normal);
     }
 

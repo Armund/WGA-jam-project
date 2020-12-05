@@ -105,6 +105,8 @@ public class Player : MonoBehaviour
             }
             else
                 Debug.Log("Tried to recive damage from the same bullet more than once");
+        else if (collider.gameObject.GetComponent<Enemy>())
+            BeKilled();
         else
             Debug.Log("Unknown collider");
     }
@@ -128,7 +130,7 @@ public class Player : MonoBehaviour
     {
         playerDirection = context.ReadValue<Vector2>().normalized;
     }
-
+   
     private void Move(Vector2 direction)
     {
         transform.position += new Vector3(direction.x, 0, direction.y) * playerSpeed * Time.deltaTime;

@@ -201,7 +201,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8898713044146422889}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5000001
   m_Height: 2
@@ -230,6 +230,7 @@ MonoBehaviour:
     type: 3}
   energyPrefab: {fileID: 4790184395866875498, guid: 1c9097aab9b191e48867cab70e9d052c,
     type: 3}
+  gameController: {fileID: 0}
 --- !u!54 &-399968716073186150
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -244,5 +245,5 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 32
   m_CollisionDetection: 0

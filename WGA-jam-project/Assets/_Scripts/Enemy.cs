@@ -7,7 +7,9 @@ public class Enemy : MonoBehaviour
     public float maxHealth;
     private float currentHealth;
     public float speed = 10f;
-    public float movementAreaRadius = 50f;
+    //public float movementAreaRadius = 50f;
+    public float movementAreaWidth;
+    public float movementAreaHeight;
     public float movementAreaCenterX;
     public float movementAreaCenterZ;
     public int amountToDrop;
@@ -64,9 +66,12 @@ public class Enemy : MonoBehaviour
 
     public void SetNextWaypoint() {
 
-        targetPos = Random.insideUnitSphere * movementAreaRadius;
-        targetPos = new Vector3(movementAreaCenterX+targetPos.x, 1, movementAreaCenterZ+targetPos.z);
+        float randX = Random.Range(movementAreaCenterX - movementAreaWidth/2, movementAreaCenterX + movementAreaWidth/2);
+        float randZ = Random.Range(movementAreaCenterZ - movementAreaHeight/2, movementAreaCenterZ + movementAreaHeight/2);
 
+        //targetPos = Random.insideUnitSphere * movementAreaRadius;
+        //targetPos = new Vector3(movementAreaCenterX+targetPos.x, 1, movementAreaCenterZ+targetPos.z);
+        targetPos = new Vector3(randX, 1, randZ);
     }
 
     public void Shoot() {

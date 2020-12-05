@@ -67,7 +67,6 @@ public class Player : MonoBehaviour
     protected void Start()
     {
 
-
         shield.GetComponent<Shield>().Disactivate();
         shield.SetActive(false);
 
@@ -77,7 +76,7 @@ public class Player : MonoBehaviour
     {
         Move(playerDirection);
         Turn(mousePosition);
-        DrawCursor(mousePosition);
+        DrawCursor(mousePosition);      
 
         if (shield.active) DrainShield();
     }

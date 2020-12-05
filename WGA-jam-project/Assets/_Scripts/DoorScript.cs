@@ -39,7 +39,10 @@ public class DoorScript : MonoBehaviour
                 else
                     Debug.Log("Tried to recive damage from the same bullet more than once");
             else
+            {
+                collider.gameObject.GetComponent<BulletScript>().Damage();
                 Debug.Log("Bullet couldn't damage the Door, because it was not charged by shield!");
+            }
         else
             Debug.Log("Unknown collider");
     }

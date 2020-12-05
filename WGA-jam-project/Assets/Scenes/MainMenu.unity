@@ -480,7 +480,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPanel: {fileID: 905673893}
   optionsPanel: {fileID: 2003739725}
-  gameSceneName: main
+  gameSceneName: Game_Scene
   volumeSlider: {fileID: 1875778710}
   volumeValueText: {fileID: 937717919}
 --- !u!114 &391305775

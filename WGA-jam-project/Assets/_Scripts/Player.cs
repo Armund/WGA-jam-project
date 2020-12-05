@@ -78,7 +78,7 @@ public class Player : MonoBehaviour
         Turn(mousePosition);
         DrawCursor(mousePosition);
 
-        if (shield.GetComponent<Shield>().IsActive()) DrainShield();
+        if (shield.active) DrainShield();
     }
 
     void OnTriggerEnter(Collider collider)

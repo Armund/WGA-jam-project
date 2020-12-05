@@ -26,10 +26,13 @@ public class Shield : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        Vector3 normal = transform.forward;
-        Vector3 reflected = Vector3.Reflect(collider.GetComponent<BulletScript>().normalizedDirection*(10^6), normal).normalized;
-        reflected.y = 0;
-        collider.gameObject.GetComponent<BulletScript>().SetTarget(reflected);
+        if (collider.GetComponent<BulletScript>())
+        {
+            Vector3 normal = transform.forward;
+            Vector3 reflected = Vector3.Reflect(collider.GetComponent<BulletScript>().normalizedDirection * (10 ^ 6), normal).normalized;
+            reflected.y = 0;
+            collider.gameObject.GetComponent<BulletScript>().SetTarget(reflected);
+        }
     }
 
 

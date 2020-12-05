@@ -112,6 +112,8 @@ public class Player : MonoBehaviour
                 Debug.Log("Tried to recive damage from the same bullet more than once");
         else if (collider.gameObject.GetComponent<Enemy>())
             BeKilled();
+        else if (collider.gameObject.GetComponent<DoorScript>())
+            BeKilled();
         else
             Debug.Log("Unknown collider");
     }

@@ -59,10 +59,10 @@ public class GameUI : MonoBehaviour
 	}
 
 	public void UpdateHP(float newValue) {
-		HpSlider.value = newValue;
+		HpSlider.value = newValue/100;
 	}
 
 	public void UpdateEnergy(float newValue) {
-		EnergySlider.value = newValue;
+		EnergySlider.value = newValue/100;
 	}
 }

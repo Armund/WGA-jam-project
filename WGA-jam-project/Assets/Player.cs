@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
         playerControls.Player.Fire.Enable();
     }
 
-    public void onDisable()
+    public void OnDisable()
     {
         playerControls.Disable();
         playerControls.Player.Look.performed -= LookHandler;

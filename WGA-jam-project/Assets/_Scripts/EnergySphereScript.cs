@@ -18,11 +18,6 @@ public class EnergySphereScript : MonoBehaviour
         notPicked = true;
     }
 
-    void OnTriggerEnter(Collider col)
-    {
-
-    }
-
     public void Pick()
     {
         notPicked = false;

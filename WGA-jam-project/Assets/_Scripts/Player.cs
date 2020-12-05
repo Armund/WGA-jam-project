@@ -23,10 +23,12 @@ public class Player : MonoBehaviour
 
     public float maxHealth;
 
-    private float energy;
+    public float energy;
 
     public float maxEnergy;
-    
+
+    public float energyDrain;
+
     protected void Awake()
     {
         playerControls = new PlayerControls();
@@ -34,11 +36,10 @@ public class Player : MonoBehaviour
 
     public void OnEnable()
     {
-        shield = GameObject.Find("Shield"); // GetComponent<Shield>();
-        shield.SetActive(false);
-
+        shield = GameObject.Find("Shield");
+        
         health = maxHealth;
-        energy = 0;
+        energy = maxEnergy;
 
         playerControls.Enable();
         playerControls.Player.Look.performed += LookHandler;
@@ -62,7 +63,11 @@ public class Player : MonoBehaviour
 
     protected void Start()
     {
-        
+
+
+        shield.GetComponent<Shield>().Disactivate();
+        shield.SetActive(false);
+
     }
 
     protected void Update()
@@ -70,6 +75,8 @@ public class Player : MonoBehaviour
         Move(playerDirection);
         Turn(mousePosition);
         DrawCursor(mousePosition);
+
+        if (shield.GetComponent<Shield>().IsActive()) DrainShield();
     }
 
     void OnTriggerEnter(Collider collider)
@@ -86,8 +93,26 @@ public class Player : MonoBehaviour
             }
             else
                 Debug.Log("Tried to pick up same energy sphere more than once");
+        else if (collider.gameObject.GetComponent<BulletScript>())
+            if (collider.gameObject.GetComponent<BulletScript>().notDamaged)
+            {
+                collider.gameObject.GetComponent<BulletScript>().Damage();
+                float damageToDeal = collider.gameObject.GetComponent<BulletScript>().damage;
+                if ((health - damageToDeal) <= 0)
+                    BeKilled();
+                else
+                    health -= damageToDeal;
+            }
+            else
+                Debug.Log("Tried to recive damage from the same bullet more than once");
         else
             Debug.Log("Unknown collider");
+    }
+
+    private void BeKilled()
+    {
+        Debug.Log("Game over!");
+        Destroy(gameObject);
     }
 
     private void LookHandler(InputAction.CallbackContext context)
@@ -127,20 +152,36 @@ public class Player : MonoBehaviour
     {
         var buttonPressed = context.ReadValue<float>();
         if (buttonPressed == 1)
-            shieldUp(); // shield.Up(); 
+            ShieldUp(); // shield.Up(); 
         else
-            shieldDown(); // shield.Down(); 
+            ShieldDown(); // shield.Down(); 
     }
 
-    private void shieldUp()
+    private void ShieldUp()
     {
-        Debug.Log("Shield up!");
-        shield.SetActive(true);
+        if (energy > 0)
+        {
+            Debug.Log("Shield up!");
+            shield.GetComponent<Shield>().Activate();
+            shield.SetActive(true);
+        }
     }
 
-    private void shieldDown()
+    private void ShieldDown()
     {
         Debug.Log("Shield down!");
+        shield.GetComponent<Shield>().Disactivate();
         shield.SetActive(false);
+    }
+
+    private void DrainShield()
+    {
+        energy -= energyDrain * Time.deltaTime;
+        if (energy <= 0)
+        {
+            energy = 0;
+            Debug.Log("No more energy!");
+            ShieldDown();
+        }
     }
 }

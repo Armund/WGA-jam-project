@@ -7,20 +7,20 @@ public class EnergySphereScript : MonoBehaviour
     public float energyAmount;
 
     public bool notPicked;
-    
-    protected void Start()
+
+    public float lifetime;
+
+    public GameController gameController;
+
+    void Awake()
     {
-        
+        gameController = GameObject.Find("GameController").GetComponent<GameController>();
+        Destroy(gameObject, lifetime);
     }
 
     public void OnEnable()
     {
         notPicked = true;
-    }
-
-    void OnTriggerEnter(Collider col)
-    {
-
     }
 
     public void Pick()
@@ -32,5 +32,10 @@ public class EnergySphereScript : MonoBehaviour
     protected void Update()
     {
 
+    }
+
+    protected void OnDestroy()
+    {
+        gameController.currentSpheres -= 1;
     }
 }

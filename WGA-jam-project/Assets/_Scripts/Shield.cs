@@ -4,26 +4,52 @@ using UnityEngine;
 
 public class Shield : MonoBehaviour
 {
-	public GameObject shieldModel;
+    private Vector3 velocity;
 
-    // Start is called before the first frame update
+    private bool active;
+
     void Start()
     {
-        
+        active = false;
     }
 
-    // Update is called once per frame
+    void OnCollisionEnter(Collision collision)
+    {
+        ReflectProjectile(collision.rigidbody, collision.contacts[0].normal);
+    }
+
+    private void ReflectProjectile(Rigidbody rb, Vector3 reflectVector)
+    {
+        velocity = Vector3.Reflect(velocity, reflectVector);
+        rb.velocity = velocity;
+    }
+
+    void OnTriggerEnter(Collider collider)
+    {
+        Vector3 normal = transform.forward;
+        Vector3 reflected = Vector3.Reflect(collider.GetComponent<BulletScript>().normalizedDirection*(10^6), normal).normalized;
+        reflected.y = 0;
+        collider.gameObject.GetComponent<BulletScript>().SetTarget(reflected);
+    }
+
+
     void Update()
     {
         
     }
 
-	public void Activate() {
-		shieldModel.SetActive(true);
-	}
+	public void Activate()
+    {
+        active = true;
+    }
 
-	public void Disactivate() {
-		shieldModel.SetActive(false);
-	}
+	public void Disactivate()
+    {
+        active = false;
+    }
 
+    public bool IsActive()
+    {
+        return active;
+    }
 }

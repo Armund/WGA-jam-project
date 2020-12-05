@@ -224,6 +224,7 @@ MonoBehaviour:
   movementAreaRadius: 10
   movementAreaCenterX: -25
   movementAreaCenterZ: 25
+  amountToDrop: 3
   timeBtwShots: 0
   startTimeBtwShots: 2
   bulletPrefab: {fileID: 8173111457849894277, guid: 5b67611d1667c9a4da3f5cc9df1202d7,

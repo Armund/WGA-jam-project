@@ -10,7 +10,6 @@ public class Enemy : MonoBehaviour
     public float movementAreaRadius = 50f;
     public float movementAreaCenterX;
     public float movementAreaCenterZ;
-    public float projectileSpeed = 10f;
 
     private float dist;
     private Vector3 targetPos;
@@ -19,7 +18,7 @@ public class Enemy : MonoBehaviour
     public float startTimeBtwShots;
 
     private Transform playerTransform;
-    public GameObject projectile;
+    public GameObject bulletPrefab;
     public GameObject energyPrefab;
 
     void Start()
@@ -65,11 +64,9 @@ public class Enemy : MonoBehaviour
 
         if (timeBtwShots <= 0)
         {
-            projectile = Instantiate(projectile, transform.position, transform.rotation);
-            Vector3 direction = projectile.transform.forward;
-            projectile.GetComponent<Rigidbody>().AddForce(direction * projectileSpeed);
+            GameObject bullet = Instantiate(bulletPrefab, transform.position + transform.localPosition, transform.rotation);
+            bullet.GetComponent<BulletScript>().SetInitTarget(playerTransform.position);
             timeBtwShots = startTimeBtwShots;
-
         }
         else {
 
@@ -79,16 +76,35 @@ public class Enemy : MonoBehaviour
 
     }
 
+    void OnTriggerEnter(Collider collider)
+    {
+        if (collider.gameObject.GetComponent<BulletScript>())
+            if (collider.gameObject.GetComponent<BulletScript>().notDamaged)
+            {
+                collider.gameObject.GetComponent<BulletScript>().Damage();
+                float damageToDeal = collider.gameObject.GetComponent<BulletScript>().damage;
+                TakeDamage(damageToDeal);
+            }
+            else
+                Debug.Log("Tried to recive damage from the same bullet more than once");
+        else
+            Debug.Log("Unknown collider");
+    }
+
+
+
     public void DropEnergy() {
-
-        Instantiate(energyPrefab, transform.position, transform.rotation);
-
+        GameObject energy = Instantiate(energyPrefab, transform.position + Random.insideUnitSphere, transform.rotation);
     }
 
     public void TakeDamage(float dmg) {
         currentHealth -= dmg;
 
-        if (currentHealth <= 0) {
+        if (currentHealth <= 0)
+        {
+            DropEnergy();
+            DropEnergy();
+            DropEnergy();
             Destroy(gameObject);
         }
 

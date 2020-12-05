@@ -10,7 +10,14 @@ public class BulletScript : MonoBehaviour
 
     public bool notDamaged;
 
+    public float lifetime;
+
     public Vector3 normalizedDirection;
+
+    void Awake()
+    {
+        Destroy(gameObject, lifetime);
+    }
 
     public void OnEnable()
     {

@@ -49,6 +49,8 @@ MonoBehaviour:
   speed: 15
   damage: 20
   notDamaged: 1
+  lifetime: 20
+  normalizedDirection: {x: 0, y: 0, z: 0}
 --- !u!33 &4675523926233081065
 MeshFilter:
   m_ObjectHideFlags: 0

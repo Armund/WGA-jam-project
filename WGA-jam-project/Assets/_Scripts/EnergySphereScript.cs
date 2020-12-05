@@ -7,10 +7,12 @@ public class EnergySphereScript : MonoBehaviour
     public float energyAmount;
 
     public bool notPicked;
-    
-    protected void Start()
+
+    public float lifetime;
+
+    void Awake()
     {
-        
+        Destroy(gameObject, lifetime);
     }
 
     public void OnEnable()

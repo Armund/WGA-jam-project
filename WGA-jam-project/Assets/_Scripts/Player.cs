@@ -40,6 +40,7 @@ public class Player : MonoBehaviour
         
         health = maxHealth;
         energy = maxEnergy;
+		Debug.Log(GameUI.instance);
 		GameUI.instance.UpdateHP(health);
 		GameUI.instance.UpdateEnergy(energy);
 

@@ -14,7 +14,7 @@ public class GameController : MonoBehaviour
 
     [SerializeField] private int maxSpheres;
 
-    private int currentSpheres;
+    public int currentSpheres;
 
     private float sizeX;
 
@@ -47,15 +47,18 @@ public class GameController : MonoBehaviour
 
     protected void Update()
     {
-        if (ShouldSpawn() && (currentSpheres < maxSpheres))
+        if (ShouldSpawn())
             CreateEnergySphere(GenerateRandomPosition());
     }
 
-    private void CreateEnergySphere(Vector3 position)
+    public void CreateEnergySphere(Vector3 position)
     {
-        nextSpawnTime = Time.time + spawnDelay;
-        Instantiate(energyPrefab, position, transform.rotation);
-        currentSpheres += 1;
+        if (currentSpheres < maxSpheres)
+        {
+            nextSpawnTime = Time.time + spawnDelay;
+            Instantiate(energyPrefab, position, transform.rotation);
+            currentSpheres += 1;
+        }
     }
 
     private Vector3 GenerateRandomPosition()

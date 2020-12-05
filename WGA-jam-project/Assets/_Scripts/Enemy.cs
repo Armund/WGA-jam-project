@@ -14,12 +14,20 @@ public class Enemy : MonoBehaviour
     private float dist;
     private Vector3 targetPos;
 
-    private float timeBtwShots;
+    public float timeBtwShots;
     public float startTimeBtwShots;
 
     private Transform playerTransform;
     public GameObject bulletPrefab;
     public GameObject energyPrefab;
+
+    public GameController gameController;
+
+    void Awake()
+    {
+        gameController = GameObject.Find("GameController").GetComponent<GameController>();
+
+    }
 
     void Start()
     {
@@ -64,7 +72,7 @@ public class Enemy : MonoBehaviour
 
         if (timeBtwShots <= 0)
         {
-            GameObject bullet = Instantiate(bulletPrefab, transform.position + transform.localPosition, transform.rotation);
+            GameObject bullet = Instantiate(bulletPrefab, gameObject.transform.GetChild(1).position, transform.rotation); //TODO change second argument for actual enemy models
             bullet.GetComponent<BulletScript>().SetInitTarget(playerTransform.position);
             timeBtwShots = startTimeBtwShots;
         }
@@ -94,7 +102,7 @@ public class Enemy : MonoBehaviour
 
 
     public void DropEnergy() {
-        GameObject energy = Instantiate(energyPrefab, transform.position + Random.insideUnitSphere, transform.rotation);
+        gameController.CreateEnergySphere(transform.position + Random.insideUnitSphere);
     }
 
     public void TakeDamage(float dmg) {

@@ -19,6 +19,14 @@ public class Player : MonoBehaviour
 
     private GameObject shield; // private Shield shield;
 
+    private float health;
+
+    public float maxHealth;
+
+    private float energy;
+
+    public float maxEnergy;
+    
     protected void Awake()
     {
         playerControls = new PlayerControls();
@@ -28,6 +36,9 @@ public class Player : MonoBehaviour
     {
         shield = GameObject.Find("Shield"); // GetComponent<Shield>();
         shield.SetActive(false);
+
+        health = maxHealth;
+        energy = 0;
 
         playerControls.Enable();
         playerControls.Player.Look.performed += LookHandler;
@@ -59,6 +70,24 @@ public class Player : MonoBehaviour
         Move(playerDirection);
         Turn(mousePosition);
         DrawCursor(mousePosition);
+    }
+
+    void OnTriggerEnter(Collider collider)
+    {
+        if (collider.gameObject.GetComponent<EnergySphereScript>())
+            if (collider.gameObject.GetComponent<EnergySphereScript>().notPicked)
+            {
+                collider.gameObject.GetComponent<EnergySphereScript>().Pick();
+                float energyAmount = collider.gameObject.GetComponent<EnergySphereScript>().energyAmount;
+                if ((energyAmount + energy) <= maxEnergy)
+                    energy += energyAmount;
+                else
+                    energy = maxEnergy;
+            }
+            else
+                Debug.Log("Tried to pick up same energy sphere more than once");
+        else
+            Debug.Log("Unknown collider");
     }
 
     private void LookHandler(InputAction.CallbackContext context)

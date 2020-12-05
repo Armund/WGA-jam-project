@@ -7,9 +7,12 @@ public class Enemy : MonoBehaviour
     public float maxHealth;
     private float currentHealth;
     public float speed = 10f;
-    public float movementAreaRadius = 50f;
+    //public float movementAreaRadius = 50f;
+    public float movementAreaWidth;
+    public float movementAreaHeight;
     public float movementAreaCenterX;
     public float movementAreaCenterZ;
+    public int amountToDrop;
 
     private float dist;
     private Vector3 targetPos;
@@ -63,9 +66,12 @@ public class Enemy : MonoBehaviour
 
     public void SetNextWaypoint() {
 
-        targetPos = Random.insideUnitSphere * movementAreaRadius;
-        targetPos = new Vector3(movementAreaCenterX+targetPos.x, 1, movementAreaCenterZ+targetPos.z);
+        float randX = Random.Range(movementAreaCenterX - movementAreaWidth/2, movementAreaCenterX + movementAreaWidth/2);
+        float randZ = Random.Range(movementAreaCenterZ - movementAreaHeight/2, movementAreaCenterZ + movementAreaHeight/2);
 
+        //targetPos = Random.insideUnitSphere * movementAreaRadius;
+        //targetPos = new Vector3(movementAreaCenterX+targetPos.x, 1, movementAreaCenterZ+targetPos.z);
+        targetPos = new Vector3(randX, 1, randZ);
     }
 
     public void Shoot() {
@@ -101,8 +107,9 @@ public class Enemy : MonoBehaviour
 
 
 
-    public void DropEnergy() {
-        gameController.CreateEnergySphere(transform.position + Random.insideUnitSphere);
+    public void DropEnergy(int amount) {
+        for (int i = 0; i < amount; ++i)
+            gameController.CreateEnergySphere(transform.position + Random.insideUnitSphere);
     }
 
     public void TakeDamage(float dmg) {
@@ -110,9 +117,7 @@ public class Enemy : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            DropEnergy();
-            DropEnergy();
-            DropEnergy();
+            DropEnergy(amountToDrop);
             Destroy(gameObject);
         }
 

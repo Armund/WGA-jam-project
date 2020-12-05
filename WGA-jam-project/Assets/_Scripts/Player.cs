@@ -86,10 +86,15 @@ public class Player : MonoBehaviour
             {
                 collider.gameObject.GetComponent<EnergySphereScript>().Pick();
                 float energyAmount = collider.gameObject.GetComponent<EnergySphereScript>().energyAmount;
+                float hpAmount = collider.gameObject.GetComponent<EnergySphereScript>().hpAmount;
                 if ((energyAmount + energy) <= maxEnergy)
                     energy += energyAmount;
                 else
                     energy = maxEnergy;
+                if ((hpAmount + health) <= maxHealth)
+                    health += hpAmount;
+                else
+                    health = maxHealth;
             }
             else
                 Debug.Log("Tried to pick up same energy sphere more than once");

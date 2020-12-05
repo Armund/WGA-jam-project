@@ -140,8 +140,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   energyAmount: 20
+  hpAmount: 5
   notPicked: 1
   lifetime: 30
+  gameController: {fileID: 0}
 --- !u!135 &7541595915320123791
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -73,7 +73,7 @@ public class DoorScript : MonoBehaviour
         GetComponent<Renderer>().material = damaged;
     }
 
-    private void Victory() { 
-        
+    private void Victory() {
+		//GameUI.instance.WinGame();
     }
 }

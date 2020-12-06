@@ -98,41 +98,40 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        if (collider.gameObject.GetComponent<EnergySphereScript>())
-            if (collider.gameObject.GetComponent<EnergySphereScript>().notPicked)
-            {
-                collider.gameObject.GetComponent<EnergySphereScript>().Pick();
-                float energyAmount = collider.gameObject.GetComponent<EnergySphereScript>().energyAmount;
-                float hpAmount = collider.gameObject.GetComponent<EnergySphereScript>().hpAmount;
-                if ((energyAmount + energy) <= maxEnergy)
-                    energy += energyAmount;
-                else
-                    energy = maxEnergy;
-                if ((hpAmount + health) <= maxHealth)
-                    health += hpAmount;
-                else
-                    health = maxHealth;
-            }
-            else
-                Debug.Log("Tried to pick up same energy sphere more than once");
-        else if (collider.gameObject.GetComponent<BulletScript>())
-            if (collider.gameObject.GetComponent<BulletScript>().notDamaged)
-            {
-                collider.gameObject.GetComponent<BulletScript>().Damage();
-                float damageToDeal = collider.gameObject.GetComponent<BulletScript>().damage;
-                if ((health - damageToDeal) <= 0)
-                    BeKilled();
-                else
-                    health -= damageToDeal;
-            }
-            else
-                Debug.Log("Tried to recive damage from the same bullet more than once");
-        else if (collider.gameObject.GetComponent<Enemy>())
-            BeKilled();
-        else if (collider.gameObject.GetComponent<DoorScript>())
-            BeKilled();
-        else
-            Debug.Log("Unknown collider");
+		if (collider.gameObject.GetComponent<EnergySphereScript>())
+			if (collider.gameObject.GetComponent<EnergySphereScript>().notPicked) {
+				collider.gameObject.GetComponent<EnergySphereScript>().Pick();
+				float energyAmount = collider.gameObject.GetComponent<EnergySphereScript>().energyAmount;
+				float hpAmount = collider.gameObject.GetComponent<EnergySphereScript>().hpAmount;
+				if ((energyAmount + energy) <= maxEnergy)
+					energy += energyAmount;
+				else
+					energy = maxEnergy;
+				if ((hpAmount + health) <= maxHealth)
+					health += hpAmount;
+				else
+					health = maxHealth;
+			} else
+				Debug.Log("Tried to pick up same energy sphere more than once");
+		else if (collider.gameObject.GetComponent<BulletScript>())
+			if (collider.gameObject.GetComponent<BulletScript>().notDamaged) {
+				collider.gameObject.GetComponent<BulletScript>().Damage();
+				float damageToDeal = collider.gameObject.GetComponent<BulletScript>().damage;
+				if ((health - damageToDeal) <= 0)
+					BeKilled();
+				else
+					health -= damageToDeal;
+			} else
+				Debug.Log("Tried to recive damage from the same bullet more than once");
+		else if (collider.gameObject.GetComponent<Enemy>())
+			BeKilled();
+		else if (collider.gameObject.GetComponent<DoorScript>())
+			BeKilled();
+		else if (collider.gameObject.GetComponent<WINSCRIPT>()) {
+			GameUI.instance.WinGame();
+		} else
+			Debug.Log("Unknown collider");
+
 		GameUI.instance.UpdateHP(health);
 		GameUI.instance.UpdateEnergy(energy);
 	}

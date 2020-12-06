@@ -77,7 +77,7 @@ public class Player : MonoBehaviour
         Turn(mousePosition);
         DrawCursor(mousePosition);      
 
-        if (shield.active) DrainShield();
+        if (shield.activeInHierarchy) DrainShield();
     }
 
     void OnTriggerEnter(Collider collider)

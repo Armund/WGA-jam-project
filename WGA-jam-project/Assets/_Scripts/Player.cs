@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
 
     private float endTime;
 
-    private float playTime;
+    public static float playTime;
 
     //private bool isInWall
 
@@ -146,7 +146,8 @@ public class Player : MonoBehaviour
 	private void BeKilled()
     {
         endGame();
-        GameUI.instance.GameOver();
+		GameUI.instance.UpdateHP(health);
+		GameUI.instance.GameOver();
 		gameObject.SetActive(false);
         //Destroy(gameObject);
     }

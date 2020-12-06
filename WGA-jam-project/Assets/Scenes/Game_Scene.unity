@@ -486,7 +486,7 @@ PrefabInstance:
     - target: {fileID: 630901113883672880, guid: bd6c8559be0313744b04a672bc271297,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -2.199829
+      value: -2.1997986
       objectReference: {fileID: 0}
     - target: {fileID: 630901114010647744, guid: bd6c8559be0313744b04a672bc271297,
         type: 3}
@@ -1026,7 +1026,7 @@ MonoBehaviour:
   - {fileID: 1350741600}
   energyPrefab: {fileID: 4790184395866875498, guid: 1c9097aab9b191e48867cab70e9d052c,
     type: 3}
-  spawnDelay: 3
+  spawnDelay: 1
   maxSpheres: 10
   player: {fileID: 681924704}
   currentSpheres: 0
@@ -2966,7 +2966,7 @@ PrefabInstance:
     - target: {fileID: 8898713044146422888, guid: 84108dafe97bc92428e71051e2e0b667,
         type: 3}
       propertyPath: maxHealth
-      value: 250
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8898713044146422888, guid: 84108dafe97bc92428e71051e2e0b667,
         type: 3}

@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class GameUI : MonoBehaviour
 {
-	[SerializeField] private PauseControls pauseControls;
+	[SerializeField] private PlayerControls pauseControls;
 
 	public static GameUI instance = null;
 
@@ -21,7 +21,7 @@ public class GameUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-		isPaused = false;
+		Unpause();
 		isGameOver = false;
 		SoundManager.instance.PlaySound(SoundManager.Sounds.MAIN_THEME);
     }
@@ -30,7 +30,7 @@ public class GameUI : MonoBehaviour
 		if (instance == null) {
 			instance = this;
 		}
-		pauseControls = new PauseControls();
+		pauseControls = new PlayerControls();
 	}
 
 	public void OnEnable() {
@@ -53,7 +53,7 @@ public class GameUI : MonoBehaviour
 		PauseMenu.SetActive(true);
 	}
 	
-	private void Unpause() {
+	public void Unpause() {
 		if (!isGameOver) {
 			isPaused = false;
 			Time.timeScale = 1;

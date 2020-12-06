@@ -126,7 +126,9 @@ public class Player : MonoBehaviour
     private void BeKilled()
     {
         Debug.Log("Game over!");
-        Destroy(gameObject);
+		GameUI.instance.GameOver();
+		gameObject.SetActive(false);
+        //Destroy(gameObject);
     }
 
     private void LookHandler(InputAction.CallbackContext context)

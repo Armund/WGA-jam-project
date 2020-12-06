@@ -11,6 +11,8 @@ public class DoorScript : MonoBehaviour
 
     public GameController gameController;
 
+    public int worth;
+
     void Awake()
     {
         gameController = GameObject.Find("GameController").GetComponent<GameController>();
@@ -55,7 +57,8 @@ public class DoorScript : MonoBehaviour
         {
             ChangeTexture();
         } else if (currentHealth <= 0)
-        { 
+        {
+            gameController.AddScore(worth);
             Destroy(gameObject);
         }
 

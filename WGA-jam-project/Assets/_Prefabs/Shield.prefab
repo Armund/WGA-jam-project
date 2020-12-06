@@ -137,4 +137,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cde0019957f1d234ebe089afa20b9328, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shieldModel: {fileID: 1647308326994700735}
+  active: 0
+  worth: 100

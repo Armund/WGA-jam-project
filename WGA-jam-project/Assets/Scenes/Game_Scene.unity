@@ -1219,6 +1219,7 @@ MonoBehaviour:
   maxSpheres: 10
   player: {fileID: 681924704}
   currentSpheres: 0
+  score: 0
 --- !u!4 &178960297
 Transform:
   m_ObjectHideFlags: 0
@@ -1631,6 +1632,11 @@ PrefabInstance:
       propertyPath: speed
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 8898713044146422888, guid: 84108dafe97bc92428e71051e2e0b667,
+        type: 3}
+      propertyPath: gameField
+      value: 
+      objectReference: {fileID: 1927229926}
     - target: {fileID: 8898713044146422888, guid: 84108dafe97bc92428e71051e2e0b667,
         type: 3}
       propertyPath: movementAreaWidth
@@ -3429,6 +3435,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8898713044146422888, guid: 84108dafe97bc92428e71051e2e0b667,
         type: 3}
+      propertyPath: gameField
+      value: 
+      objectReference: {fileID: 1927229926}
+    - target: {fileID: 8898713044146422888, guid: 84108dafe97bc92428e71051e2e0b667,
+        type: 3}
       propertyPath: movementAreaWidth
       value: 10
       objectReference: {fileID: 0}
@@ -4651,6 +4662,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7631599835916026470, guid: c0d81011829bfbf4291c5db32a6e3504,
+        type: 3}
+      propertyPath: worth
+      value: 50000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0d81011829bfbf4291c5db32a6e3504, type: 3}
 --- !u!1001 &1482653024
@@ -5804,6 +5820,11 @@ PrefabInstance:
       propertyPath: speed
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 8898713044146422888, guid: 84108dafe97bc92428e71051e2e0b667,
+        type: 3}
+      propertyPath: gameField
+      value: 
+      objectReference: {fileID: 1927229926}
     - target: {fileID: 8898713044146422888, guid: 84108dafe97bc92428e71051e2e0b667,
         type: 3}
       propertyPath: movementAreaWidth

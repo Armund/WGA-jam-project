@@ -133,7 +133,7 @@ public class Enemy : MonoBehaviour
             gameController.AddScore(worth);
             SoundManager.instance.PlaySound(SoundManager.Sounds.ENEMY_EXPLOSION);
             DropEnergy(amountToDrop);
-			Instantiate(Resources.instance.explosionEffect, transform.position, Quaternion.identity);
+			//Instantiate(Resources.instance.explosionEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
 

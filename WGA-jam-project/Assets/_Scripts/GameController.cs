@@ -30,7 +30,7 @@ public class GameController : MonoBehaviour
 
     private float stepFromWalls = 2.0f;
 
-    public int score;
+    public static int score;
 
     protected void Start()
     {

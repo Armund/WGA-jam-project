@@ -7,12 +7,13 @@ using UnityEngine.SceneManagement;
 
 public class GameUI : MonoBehaviour
 {
-	[SerializeField] private PauseControls pauseControls;
+	[SerializeField] private PlayerControls pauseControls;
 
 	public static GameUI instance = null;
 
 	public GameObject PauseMenu;
-	bool isPaused = false;
+	bool isPaused;
+	bool isGameOver;
 
 	public Slider HpSlider;
 	public Slider EnergySlider;
@@ -20,7 +21,8 @@ public class GameUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+		Unpause();
+		isGameOver = false;
 		SoundManager.instance.PlaySound(SoundManager.Sounds.MAIN_THEME);
     }
 
@@ -28,7 +30,7 @@ public class GameUI : MonoBehaviour
 		if (instance == null) {
 			instance = this;
 		}
-		pauseControls = new PauseControls();
+		pauseControls = new PlayerControls();
 	}
 
 	public void OnEnable() {
@@ -38,15 +40,21 @@ public class GameUI : MonoBehaviour
 	}
 
 	private void PauseHandler(InputAction.CallbackContext context) {
-		PauseUnpause();
+		if (isPaused) {
+			Unpause();
+		} else {
+			Pause();
+		}
 	}
 
-	public void PauseUnpause() {
-		if (!isPaused) {
-			isPaused = true;
-			Time.timeScale = 0;
-			PauseMenu.SetActive(true);
-		} else {
+	private void Pause() {
+		isPaused = true;
+		Time.timeScale = 0;
+		PauseMenu.SetActive(true);
+	}
+	
+	public void Unpause() {
+		if (!isGameOver) {
 			isPaused = false;
 			Time.timeScale = 1;
 			PauseMenu.SetActive(false);
@@ -54,9 +62,7 @@ public class GameUI : MonoBehaviour
 	}
 
 	public void LoadScene(string sceneName) {
-		isPaused = false;
-		Time.timeScale = 1;
-		PauseMenu.SetActive(false);
+		Unpause();
 		SceneManager.LoadScene(sceneName);
 	}
 
@@ -66,5 +72,10 @@ public class GameUI : MonoBehaviour
 
 	public void UpdateEnergy(float newValue) {
 		EnergySlider.value = newValue/100;
+	}
+
+	public void GameOver() {
+		Pause();
+		isGameOver = true;
 	}
 }

@@ -479,8 +479,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainPanel: {fileID: 905673893}
-  optionsPanel: {fileID: 2003739725}
-  gameSceneName: main
+  HowToPlayPanel: {fileID: 2003739725}
+  gameSceneName: Game_Scene
   volumeSlider: {fileID: 1875778710}
   volumeValueText: {fileID: 937717919}
 --- !u!114 &391305775
@@ -1122,7 +1122,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Options
+  m_Text: How to play
 --- !u!222 &1067731768
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1587,7 +1587,7 @@ GameObject:
   - component: {fileID: 1236599443}
   - component: {fileID: 1236599442}
   m_Layer: 5
-  m_Name: OptionsButton
+  m_Name: HowToPlayButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1657,7 +1657,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 391305774}
-        m_MethodName: OpenOptions
+        m_MethodName: OpenHowToPlay
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1780,6 +1780,80 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1433075195}
   m_CullTransparentMesh: 0
+--- !u!1001 &1472171430
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1354797676556993934, guid: c905e0a83ab77d84f945be32021e0e22,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.547
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659036263675612581, guid: c905e0a83ab77d84f945be32021e0e22,
+        type: 3}
+      propertyPath: m_Name
+      value: SoundManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659036263675612583, guid: c905e0a83ab77d84f945be32021e0e22,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659036263675612583, guid: c905e0a83ab77d84f945be32021e0e22,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659036263675612583, guid: c905e0a83ab77d84f945be32021e0e22,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.1915001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659036263675612583, guid: c905e0a83ab77d84f945be32021e0e22,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.13699993
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659036263675612583, guid: c905e0a83ab77d84f945be32021e0e22,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659036263675612583, guid: c905e0a83ab77d84f945be32021e0e22,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659036263675612583, guid: c905e0a83ab77d84f945be32021e0e22,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659036263675612583, guid: c905e0a83ab77d84f945be32021e0e22,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659036263675612583, guid: c905e0a83ab77d84f945be32021e0e22,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659036263675612583, guid: c905e0a83ab77d84f945be32021e0e22,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659036263675612583, guid: c905e0a83ab77d84f945be32021e0e22,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c905e0a83ab77d84f945be32021e0e22, type: 3}
 --- !u!1 &1734181536
 GameObject:
   m_ObjectHideFlags: 0
@@ -2042,7 +2116,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2003739726}
   m_Layer: 5
-  m_Name: Options
+  m_Name: HowToPlay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

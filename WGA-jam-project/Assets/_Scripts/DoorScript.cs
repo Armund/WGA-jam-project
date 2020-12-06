@@ -74,6 +74,6 @@ public class DoorScript : MonoBehaviour
     }
 
     private void Victory() {
-        Debug.Log("Victory");
+		//GameUI.instance.WinGame();
     }
 }

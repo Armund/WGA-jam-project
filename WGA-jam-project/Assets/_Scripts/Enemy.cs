@@ -24,6 +24,10 @@ public class Enemy : MonoBehaviour
     public GameObject bulletPrefab;
     public GameObject energyPrefab;
 
+    public GameObject gameField;
+    
+    private bool active;
+
     public GameController gameController;
 
     void Awake()
@@ -45,17 +49,22 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        transform.LookAt(playerTransform.position);
+        active = (gameController.activeGameField == gameField);
 
-        dist = Vector3.Distance(transform.position, targetPos);
+        if (active)
+        {
+            transform.LookAt(playerTransform.position);
 
-        GoToWaypoint();
-        Shoot();
+            dist = Vector3.Distance(transform.position, targetPos);
 
-        if (dist<1f) {
-            SetNextWaypoint();
+            GoToWaypoint();
+            Shoot();
+
+            if (dist < 1f)
+            {
+                SetNextWaypoint();
+            }
         }
-
     }
 
     public void GoToWaypoint() {

@@ -6,13 +6,19 @@ public class GameController : MonoBehaviour
 {
     private float nextSpawnTime;
 
-    [SerializeField] private GameObject gameField;
+    public GameObject activeGameField;
+
+    public GameObject[] gameField;
 
     [SerializeField] private GameObject energyPrefab;
 
     [SerializeField] private float spawnDelay;
 
     [SerializeField] private int maxSpheres;
+
+    [SerializeField] private Player player;
+
+    private Vector4 bounds;
 
     public int currentSpheres;
 
@@ -22,7 +28,7 @@ public class GameController : MonoBehaviour
 
     private Vector3 center;
 
-    private float stepFromWalls = 5.0f;
+    private float stepFromWalls = 2.0f;
 
     protected void Start()
     {
@@ -31,11 +37,9 @@ public class GameController : MonoBehaviour
 
     public void OnEnable()
     {
-        center = gameField.GetComponent<MeshRenderer>().bounds.center;
-
-        sizeX = gameField.GetComponent<MeshRenderer>().bounds.extents.x - stepFromWalls;
-
-        sizeZ = gameField.GetComponent<MeshRenderer>().bounds.extents.z - stepFromWalls;
+        activeGameField = gameField[0];
+        recalculateBounds();
+        locatePlayer();
 
         nextSpawnTime = Time.time + spawnDelay;
         // Draw bounds
@@ -47,6 +51,8 @@ public class GameController : MonoBehaviour
 
     protected void Update()
     {
+        locatePlayer(); // Yes I am calling a function with quite a lot of calculations in Update, which is executed every frame, but there is not very much time left.
+
         if (ShouldSpawn())
             CreateEnergySphere(GenerateRandomPosition());
     }
@@ -69,5 +75,34 @@ public class GameController : MonoBehaviour
     private bool ShouldSpawn()
     {
         return Time.time >= nextSpawnTime;
+    }
+
+    private void recalculateBounds()
+    {
+        center = activeGameField.GetComponent<MeshRenderer>().bounds.center;
+
+        sizeX = activeGameField.GetComponent<MeshRenderer>().bounds.extents.x - stepFromWalls;
+
+        sizeZ = activeGameField.GetComponent<MeshRenderer>().bounds.extents.z - stepFromWalls;
+
+        bounds.Set(center.x - sizeX, center.x + sizeX, center.z - sizeZ, center.z + sizeZ);
+    }
+
+    private void locatePlayer()
+    {
+        if ((player.transform.position.x > bounds.x && player.transform.position.x < bounds.y && player.transform.position.z > bounds.z && player.transform.position.z < bounds.w) == false)
+            for (int i = 0; i < gameField.Length; ++i)
+            {
+                Vector3 tempCenter = gameField[i].GetComponent<MeshRenderer>().bounds.center;
+                float tempSizeX = gameField[i].GetComponent<MeshRenderer>().bounds.extents.x - stepFromWalls;
+                float tempSizeZ = gameField[i].GetComponent<MeshRenderer>().bounds.extents.z - stepFromWalls;
+                Vector4 tempBounds = new Vector4(tempCenter.x - tempSizeX, tempCenter.x + tempSizeX, tempCenter.z - tempSizeZ, tempCenter.z + tempSizeZ);
+                if (player.transform.position.x > tempBounds.x && player.transform.position.x < tempBounds.y && player.transform.position.z > tempBounds.z && player.transform.position.z < tempBounds.w)
+                {
+                    activeGameField = gameField[i];
+                    recalculateBounds();
+                    return;
+                }
+            }            
     }
 }

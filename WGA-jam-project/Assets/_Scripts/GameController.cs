@@ -30,6 +30,8 @@ public class GameController : MonoBehaviour
 
     private float stepFromWalls = 2.0f;
 
+    public int score;
+
     protected void Start()
     {
         
@@ -41,12 +43,24 @@ public class GameController : MonoBehaviour
         recalculateBounds();
         locatePlayer();
 
+        score = 0;
+
         nextSpawnTime = Time.time + spawnDelay;
         // Draw bounds
         /*CreateEnergySphere(center - new Vector3(sizeX, 0, sizeZ) + Vector3.up);
         CreateEnergySphere(center - new Vector3(sizeX, 0, -sizeZ) + Vector3.up);
         CreateEnergySphere(center - new Vector3(-sizeX, 0, sizeZ) + Vector3.up);
         CreateEnergySphere(center - new Vector3(-sizeX, 0, -sizeZ) + Vector3.up);*/
+    }
+
+    public void AddScore(int addScore)
+    {
+        score += addScore;
+    }
+
+    public int GetScore()
+    {
+        return score;
     }
 
     protected void Update()

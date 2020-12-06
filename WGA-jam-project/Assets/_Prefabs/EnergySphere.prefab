@@ -237,6 +237,7 @@ MonoBehaviour:
   notPicked: 1
   lifetime: 30
   gameController: {fileID: 0}
+  worth: 500
 --- !u!135 &7541595915320123791
 SphereCollider:
   m_ObjectHideFlags: 0

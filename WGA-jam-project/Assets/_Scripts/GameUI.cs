@@ -20,12 +20,14 @@ public class GameUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (instance == null) {
-			instance = this;
-		}
+        
+		SoundManager.instance.PlaySound(SoundManager.Sounds.MAIN_THEME);
     }
 
 	protected void Awake() {
+		if (instance == null) {
+			instance = this;
+		}
 		pauseControls = new PauseControls();
 	}
 
@@ -59,10 +61,10 @@ public class GameUI : MonoBehaviour
 	}
 
 	public void UpdateHP(float newValue) {
-		HpSlider.value = newValue;
+		HpSlider.value = newValue/100;
 	}
 
 	public void UpdateEnergy(float newValue) {
-		EnergySlider.value = newValue;
+		EnergySlider.value = newValue/100;
 	}
 }

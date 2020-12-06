@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-	public enum Sounds {MAIN_THEME, SHOOT, SHIELD_REFLECTION, SHIELD_UP, SHIELD_DOWN, EXPLOSION, WALK }
+	public enum Sounds {MENU_THEME, MAIN_THEME, SHOT, SHIELD_REFLECTION, SHIELD, ENEMY_EXPLOSION, BULLET_DESTROY }
 
 	public static SoundManager instance = null;
 
-	public AudioSource[] audioSources = new AudioSource[20];
+	public AudioSource[] audioSources = new AudioSource[10];
 
 	// Start is called before the first frame update
 	void Start()

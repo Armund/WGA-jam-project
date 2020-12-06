@@ -20,6 +20,7 @@ public class Menu : MonoBehaviour {
 		if (!PlayerPrefs.HasKey("volume")) {
 			PlayerPrefs.SetFloat("volume", 1);
 		}
+		SoundManager.instance.PlaySound(SoundManager.Sounds.MENU_THEME);
 	}
 
 	// Update is called once per frame

@@ -87,7 +87,7 @@ public class Enemy : MonoBehaviour
 
         if (timeBtwShots <= 0)
         {
-            GameObject bullet = Instantiate(bulletPrefab, gameObject.transform.GetChild(1).position, transform.rotation); //TODO change second argument for actual enemy models
+            GameObject bullet = Instantiate(bulletPrefab, gameObject.transform.GetChild(0).position, transform.rotation); //TODO change second argument for actual enemy models
             Vector3 targetPosFixY = new Vector3(playerTransform.position.x, 1, playerTransform.position.z);
             bullet.GetComponent<BulletScript>().SetInitTarget(targetPosFixY);
             timeBtwShots = startTimeBtwShots;

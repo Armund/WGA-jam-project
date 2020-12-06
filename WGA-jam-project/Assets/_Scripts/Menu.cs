@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Menu : MonoBehaviour {
 	public GameObject mainPanel;
 
-	public GameObject optionsPanel;
+	public GameObject HowToPlayPanel;
 
 	public string gameSceneName;
 
@@ -32,9 +32,9 @@ public class Menu : MonoBehaviour {
 		SceneManager.LoadScene(gameSceneName);
 	}
 
-	public void OpenOptions() {
+	public void OpenHowToPlay() {
 		mainPanel.SetActive(false);
-		optionsPanel.SetActive(true);
+		HowToPlayPanel.SetActive(true);
 		volumeSlider.value = PlayerPrefs.GetFloat("volume");
 	}
 
@@ -43,9 +43,9 @@ public class Menu : MonoBehaviour {
 	}
 
 	public void BackToMenu() {
-		SaveChanges();
+		//SaveChanges();
 		mainPanel.SetActive(true);
-		optionsPanel.SetActive(false);
+		HowToPlayPanel.SetActive(false);
 	}
 
 	public void SaveChanges() {

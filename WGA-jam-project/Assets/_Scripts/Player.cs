@@ -31,6 +31,8 @@ public class Player : MonoBehaviour
 
     public GameObject gameField;
 
+	//private bool isInWall
+
     protected void Awake()
     {
         playerControls = new PlayerControls();
@@ -79,7 +81,7 @@ public class Player : MonoBehaviour
         Turn(mousePosition);
         DrawCursor(mousePosition);      
 
-        if (shield.active) DrainShield();
+        if (shield.activeInHierarchy) DrainShield();
     }
 
     void OnTriggerEnter(Collider collider)
@@ -123,10 +125,18 @@ public class Player : MonoBehaviour
 		GameUI.instance.UpdateEnergy(energy);
 	}
 
-    private void BeKilled()
+	private void OnCollisionStay(Collision collision) {
+		if (collision.gameObject.CompareTag("Wall")) {
+			playerDirection *= new Vector2(0.85f, 0.85f);
+		}
+	}
+
+	private void BeKilled()
     {
         Debug.Log("Game over!");
-        Destroy(gameObject);
+		GameUI.instance.GameOver();
+		gameObject.SetActive(false);
+        //Destroy(gameObject);
     }
 
     private void LookHandler(InputAction.CallbackContext context)

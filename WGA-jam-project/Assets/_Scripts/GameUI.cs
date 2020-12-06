@@ -19,6 +19,9 @@ public class GameUI : MonoBehaviour
 	public Slider HpSlider;
 	public Slider EnergySlider;
 
+	public Text scoreTable;
+	public Text scoreValuesText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +29,10 @@ public class GameUI : MonoBehaviour
 		isGameOver = false;
 		SoundManager.instance.PlaySound(SoundManager.Sounds.MAIN_THEME);
     }
+
+	private void Update() {
+		scoreTable.text = "Score: " + GameController.score + "\n" + "Time: " + Mathf.Round(Player.playTime);
+	}
 
 	protected void Awake() {
 		if (instance == null) {
@@ -85,5 +92,20 @@ public class GameUI : MonoBehaviour
 		isGameOver = true;
 		PauseMenu.SetActive(false);
 		WinScreen.SetActive(true);
+		scoreValuesText.text = GameController.score + "\n" + Mathf.Round(Player.playTime) + "\n" + GetFinalScore();
+	}
+
+	public int GetFinalScore() {
+		int result = 0;
+
+		if (Mathf.Round(Player.playTime) < 180) {
+			result = GameController.score * 3;
+		} else if (Mathf.Round(Player.playTime) < 360) {
+			result = GameController.score * 2;
+		} else {
+			result = GameController.score;
+		}
+
+		return result;
 	}
 }

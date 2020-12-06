@@ -628,6 +628,7 @@ GameObject:
   - component: {fileID: 111791074}
   - component: {fileID: 111791073}
   - component: {fileID: 111791071}
+  - component: {fileID: 111791072}
   m_Layer: 0
   m_Name: Wall (7)
   m_TagString: Wall
@@ -661,6 +662,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d07e723ad9346b49b0a6dae8b209cb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!54 &111791072
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111791069}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!65 &111791073
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -734,6 +751,7 @@ GameObject:
   - component: {fileID: 138983273}
   - component: {fileID: 138983272}
   - component: {fileID: 138983270}
+  - component: {fileID: 138983271}
   m_Layer: 0
   m_Name: Wall (1)
   m_TagString: Wall
@@ -753,6 +771,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d07e723ad9346b49b0a6dae8b209cb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!54 &138983271
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138983269}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!65 &138983272
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -963,6 +997,7 @@ GameObject:
   - component: {fileID: 170368337}
   - component: {fileID: 170368336}
   - component: {fileID: 170368334}
+  - component: {fileID: 170368335}
   m_Layer: 0
   m_Name: Wall (10)
   m_TagString: Wall
@@ -996,6 +1031,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d07e723ad9346b49b0a6dae8b209cb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!54 &170368335
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170368332}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!65 &170368336
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1425,6 +1476,104 @@ MonoBehaviour:
   target: {fileID: 681924702}
   speed: 0.125
   offset: {x: -0.5799999, y: 30.83547, z: -1.96099}
+--- !u!1 &265493560
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 265493564}
+  - component: {fileID: 265493563}
+  - component: {fileID: 265493562}
+  - component: {fileID: 265493561}
+  m_Layer: 5
+  m_Name: Canvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &265493561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 265493560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &265493562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 265493560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+--- !u!223 &265493563
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 265493560}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!224 &265493564
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 265493560}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 26
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
 --- !u!1 &325995438 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8898713044146422889, guid: 84108dafe97bc92428e71051e2e0b667,
@@ -1631,6 +1780,16 @@ PrefabInstance:
       propertyPath: speed
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 8898713044146422888, guid: 84108dafe97bc92428e71051e2e0b667,
+        type: 3}
+      propertyPath: gameField
+      value: 
+      objectReference: {fileID: 1927229926}
+    - target: {fileID: 8898713044146422888, guid: 84108dafe97bc92428e71051e2e0b667,
+        type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 178960296}
     - target: {fileID: 8898713044146422888, guid: 84108dafe97bc92428e71051e2e0b667,
         type: 3}
       propertyPath: movementAreaWidth
@@ -1990,6 +2149,7 @@ GameObject:
   - component: {fileID: 619048113}
   - component: {fileID: 619048112}
   - component: {fileID: 619048110}
+  - component: {fileID: 619048111}
   m_Layer: 0
   m_Name: Wall (3)
   m_TagString: Wall
@@ -2023,6 +2183,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d07e723ad9346b49b0a6dae8b209cb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!54 &619048111
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619048108}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!65 &619048112
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2650,6 +2826,7 @@ GameObject:
   - component: {fileID: 753412851}
   - component: {fileID: 753412850}
   - component: {fileID: 753412848}
+  - component: {fileID: 753412849}
   m_Layer: 0
   m_Name: Wall (11)
   m_TagString: Wall
@@ -2683,6 +2860,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d07e723ad9346b49b0a6dae8b209cb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!54 &753412849
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753412846}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!65 &753412850
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3427,6 +3620,16 @@ PrefabInstance:
       propertyPath: speed
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 8898713044146422888, guid: 84108dafe97bc92428e71051e2e0b667,
+        type: 3}
+      propertyPath: gameField
+      value: 
+      objectReference: {fileID: 1927229926}
+    - target: {fileID: 8898713044146422888, guid: 84108dafe97bc92428e71051e2e0b667,
+        type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 178960296}
     - target: {fileID: 8898713044146422888, guid: 84108dafe97bc92428e71051e2e0b667,
         type: 3}
       propertyPath: movementAreaWidth
@@ -4934,6 +5137,7 @@ GameObject:
   - component: {fileID: 1502794600}
   - component: {fileID: 1502794599}
   - component: {fileID: 1502794597}
+  - component: {fileID: 1502794598}
   m_Layer: 0
   m_Name: Wall (4)
   m_TagString: Wall
@@ -4967,6 +5171,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d07e723ad9346b49b0a6dae8b209cb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!54 &1502794598
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502794595}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!65 &1502794599
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5040,6 +5260,7 @@ GameObject:
   - component: {fileID: 1536952945}
   - component: {fileID: 1536952944}
   - component: {fileID: 1536952942}
+  - component: {fileID: 1536952943}
   m_Layer: 0
   m_Name: Wall (5)
   m_TagString: Wall
@@ -5073,6 +5294,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d07e723ad9346b49b0a6dae8b209cb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!54 &1536952943
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1536952940}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!65 &1536952944
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5553,6 +5790,7 @@ GameObject:
   - component: {fileID: 1737352951}
   - component: {fileID: 1737352950}
   - component: {fileID: 1737352948}
+  - component: {fileID: 1737352949}
   m_Layer: 0
   m_Name: Wall (9)
   m_TagString: Wall
@@ -5586,6 +5824,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d07e723ad9346b49b0a6dae8b209cb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!54 &1737352949
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1737352946}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!65 &1737352950
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5659,6 +5913,7 @@ GameObject:
   - component: {fileID: 1769079321}
   - component: {fileID: 1769079320}
   - component: {fileID: 1769079318}
+  - component: {fileID: 1769079319}
   m_Layer: 0
   m_Name: Wall (6)
   m_TagString: Wall
@@ -5692,6 +5947,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d07e723ad9346b49b0a6dae8b209cb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!54 &1769079319
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1769079316}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!65 &1769079320
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5804,6 +6075,16 @@ PrefabInstance:
       propertyPath: speed
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 8898713044146422888, guid: 84108dafe97bc92428e71051e2e0b667,
+        type: 3}
+      propertyPath: gameField
+      value: 
+      objectReference: {fileID: 1927229926}
+    - target: {fileID: 8898713044146422888, guid: 84108dafe97bc92428e71051e2e0b667,
+        type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 178960296}
     - target: {fileID: 8898713044146422888, guid: 84108dafe97bc92428e71051e2e0b667,
         type: 3}
       propertyPath: movementAreaWidth
@@ -6211,6 +6492,7 @@ GameObject:
   - component: {fileID: 1999910398}
   - component: {fileID: 1999910397}
   - component: {fileID: 1999910395}
+  - component: {fileID: 1999910396}
   m_Layer: 0
   m_Name: Wall (2)
   m_TagString: Wall
@@ -6244,6 +6526,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d07e723ad9346b49b0a6dae8b209cb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!54 &1999910396
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999910393}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!65 &1999910397
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6510,6 +6808,7 @@ GameObject:
   - component: {fileID: 2091269358}
   - component: {fileID: 2091269357}
   - component: {fileID: 2091269355}
+  - component: {fileID: 2091269356}
   m_Layer: 0
   m_Name: Wall (8)
   m_TagString: Wall
@@ -6543,6 +6842,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d07e723ad9346b49b0a6dae8b209cb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!54 &2091269356
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091269353}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!65 &2091269357
 BoxCollider:
   m_ObjectHideFlags: 0

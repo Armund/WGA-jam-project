@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float maxHealth;
-    private float currentHealth;
+    public float currentHealth;
     public float speed = 10f;
     //public float movementAreaRadius = 50f;
     public float movementAreaWidth;
@@ -89,7 +89,7 @@ public class Enemy : MonoBehaviour
 
         if (timeBtwShots <= 0)
         {
-            GameObject bullet = Instantiate(bulletPrefab, gameObject.transform.GetChild(1).position, transform.rotation); //TODO change second argument for actual enemy models
+            GameObject bullet = Instantiate(bulletPrefab, gameObject.transform.GetChild(0).position, transform.rotation); //TODO change second argument for actual enemy models
             Vector3 targetPosFixY = new Vector3(playerTransform.position.x, 1, playerTransform.position.z);
             bullet.GetComponent<BulletScript>().SetInitTarget(targetPosFixY);
             timeBtwShots = startTimeBtwShots;

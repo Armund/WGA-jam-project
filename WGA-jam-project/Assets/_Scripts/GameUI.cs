@@ -12,6 +12,7 @@ public class GameUI : MonoBehaviour
 	public static GameUI instance = null;
 
 	public GameObject PauseMenu;
+	public GameObject WinScreen;
 	bool isPaused;
 	bool isGameOver;
 
@@ -77,5 +78,12 @@ public class GameUI : MonoBehaviour
 	public void GameOver() {
 		Pause();
 		isGameOver = true;
+	}
+
+	public void WinGame() {
+		Pause();
+		isGameOver = true;
+		PauseMenu.SetActive(false);
+		WinScreen.SetActive(true);
 	}
 }

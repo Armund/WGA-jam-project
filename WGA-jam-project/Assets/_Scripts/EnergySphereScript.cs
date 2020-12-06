@@ -13,6 +13,8 @@ public class EnergySphereScript : MonoBehaviour
 
     public GameController gameController;
 
+    public int worth;
+
     void Awake()
     {
         gameController = GameObject.Find("GameController").GetComponent<GameController>();
@@ -27,6 +29,7 @@ public class EnergySphereScript : MonoBehaviour
     public void Pick()
     {
         notPicked = false;
+        gameController.AddScore(worth);
         Destroy(gameObject);
     }
 

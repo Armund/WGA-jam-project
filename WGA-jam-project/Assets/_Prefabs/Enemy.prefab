@@ -234,6 +234,7 @@ MonoBehaviour:
   energyPrefab: {fileID: 4790184395866875498, guid: 1c9097aab9b191e48867cab70e9d052c,
     type: 3}
   gameField: {fileID: 0}
+  worth: 10000
   gameController: {fileID: 0}
 --- !u!54 &-399968716073186150
 Rigidbody:

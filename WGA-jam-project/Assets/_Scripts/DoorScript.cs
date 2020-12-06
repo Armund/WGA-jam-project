@@ -12,6 +12,7 @@ public class DoorScript : MonoBehaviour
     public GameController gameController;
 
     public int worth;
+    public bool final;
 
     void Awake()
     {
@@ -60,6 +61,9 @@ public class DoorScript : MonoBehaviour
         {
             gameController.AddScore(worth);
             Destroy(gameObject);
+            if (final) {
+                Victory();
+            }
         }
 
     }
@@ -67,5 +71,9 @@ public class DoorScript : MonoBehaviour
     public void ChangeTexture()
     {
         GetComponent<Renderer>().material = damaged;
+    }
+
+    private void Victrory() { 
+        
     }
 }

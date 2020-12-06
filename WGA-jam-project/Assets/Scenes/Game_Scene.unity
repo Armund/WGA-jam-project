@@ -486,7 +486,7 @@ PrefabInstance:
     - target: {fileID: 630901113883672880, guid: bd6c8559be0313744b04a672bc271297,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -2.1997986
+      value: -2.199829
       objectReference: {fileID: 0}
     - target: {fileID: 630901114010647744, guid: bd6c8559be0313744b04a672bc271297,
         type: 3}
@@ -1030,6 +1030,7 @@ MonoBehaviour:
   maxSpheres: 10
   player: {fileID: 681924704}
   currentSpheres: 0
+  score: 0
 --- !u!4 &178960297
 Transform:
   m_ObjectHideFlags: 0
@@ -2679,6 +2680,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: d2e9b38fb8bc43d42a2d270ace6bd848, type: 2}
     - target: {fileID: 7631599835916026470, guid: c0d81011829bfbf4291c5db32a6e3504,
         type: 3}
+      propertyPath: final
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7631599835916026470, guid: c0d81011829bfbf4291c5db32a6e3504,
+        type: 3}
       propertyPath: damaged
       value: 
       objectReference: {fileID: 2100000, guid: 9f552a768b62236478301307acb09af8, type: 2}
@@ -2949,13 +2955,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8898713044146422888, guid: 84108dafe97bc92428e71051e2e0b667,
         type: 3}
+      propertyPath: worth
+      value: 10000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8898713044146422888, guid: 84108dafe97bc92428e71051e2e0b667,
+        type: 3}
       propertyPath: gameField
       value: 
       objectReference: {fileID: 1350741600}
     - target: {fileID: 8898713044146422888, guid: 84108dafe97bc92428e71051e2e0b667,
         type: 3}
       propertyPath: maxHealth
-      value: 500
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 8898713044146422888, guid: 84108dafe97bc92428e71051e2e0b667,
         type: 3}

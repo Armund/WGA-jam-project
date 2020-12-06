@@ -31,6 +31,8 @@ public class Player : MonoBehaviour
 
     public GameObject gameField;
 
+	//private bool isInWall
+
     protected void Awake()
     {
         playerControls = new PlayerControls();
@@ -123,7 +125,13 @@ public class Player : MonoBehaviour
 		GameUI.instance.UpdateEnergy(energy);
 	}
 
-    private void BeKilled()
+	private void OnCollisionStay(Collision collision) {
+		if (collision.gameObject.CompareTag("Wall")) {
+			playerDirection *= new Vector2(0.85f, 0.85f);
+		}
+	}
+
+	private void BeKilled()
     {
         Debug.Log("Game over!");
 		GameUI.instance.GameOver();

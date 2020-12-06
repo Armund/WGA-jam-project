@@ -29,6 +29,8 @@ public class Player : MonoBehaviour
 
     public float energyDrain;
 
+    public GameObject gameField;
+
     protected void Awake()
     {
         playerControls = new PlayerControls();

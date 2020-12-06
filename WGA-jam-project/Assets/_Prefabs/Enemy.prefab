@@ -221,7 +221,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 0
   speed: 5
-  movementAreaRadius: 10
+  movementAreaWidth: 0
+  movementAreaHeight: 0
   movementAreaCenterX: -25
   movementAreaCenterZ: 25
   amountToDrop: 3
@@ -231,6 +232,8 @@ MonoBehaviour:
     type: 3}
   energyPrefab: {fileID: 4790184395866875498, guid: 1c9097aab9b191e48867cab70e9d052c,
     type: 3}
+  gameField: {fileID: 0}
+  worth: 10000
   gameController: {fileID: 0}
 --- !u!54 &-399968716073186150
 Rigidbody:

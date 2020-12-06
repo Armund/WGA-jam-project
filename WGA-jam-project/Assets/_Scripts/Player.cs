@@ -31,10 +31,18 @@ public class Player : MonoBehaviour
 
     public GameObject gameField;
 
-	//private bool isInWall
+    private float startTime;
+
+    private float endTime;
+
+    private float playTime;
+
+    //private bool isInWall
 
     protected void Awake()
     {
+        startTime = Time.realtimeSinceStartup;
+
         playerControls = new PlayerControls();
     }
 
@@ -42,6 +50,8 @@ public class Player : MonoBehaviour
     {
         shield = GameObject.Find("Shield");
         
+
+
         health = maxHealth;
         energy = maxEnergy;
 		GameUI.instance.UpdateHP(health);
@@ -77,6 +87,8 @@ public class Player : MonoBehaviour
 
     protected void Update()
     {
+        endTime = Time.realtimeSinceStartup;
+        playTime = endTime - startTime;
         Move(playerDirection);
         Turn(mousePosition);
         DrawCursor(mousePosition);      
@@ -133,10 +145,18 @@ public class Player : MonoBehaviour
 
 	private void BeKilled()
     {
-        Debug.Log("Game over!");
-		GameUI.instance.GameOver();
+        endGame();
+        GameUI.instance.GameOver();
 		gameObject.SetActive(false);
         //Destroy(gameObject);
+    }
+
+    private void endGame()
+    {
+        Debug.Log(playTime);
+        Debug.Log(GameObject.Find("GameController").GetComponent<GameController>().GetScore());
+        Debug.Log(GameObject.Find("GameController").GetComponent<GameController>().GetScore()/playTime);
+        Debug.Log("Game over!");
     }
 
     private void LookHandler(InputAction.CallbackContext context)

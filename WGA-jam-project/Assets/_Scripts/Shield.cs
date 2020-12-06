@@ -9,6 +9,7 @@ public class Shield : MonoBehaviour
 
     public bool active;
 
+    public int worth;
     void Start()
     {
         active = false;
@@ -36,6 +37,7 @@ public class Shield : MonoBehaviour
             collider.gameObject.GetComponent<BulletScript>().SetTarget(reflected);
             collider.gameObject.GetComponent<BulletScript>().reflected = true;
             collider.gameObject.GetComponent<BulletScript>().ChangeTexture();
+            GameObject.Find("GameController").GetComponent<GameController>().AddScore(worth);
         }
     }
 

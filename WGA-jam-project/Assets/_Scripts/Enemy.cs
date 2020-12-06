@@ -28,6 +28,8 @@ public class Enemy : MonoBehaviour
     
     private bool active;
 
+    public int worth;
+
     public GameController gameController;
 
     void Awake()
@@ -128,7 +130,8 @@ public class Enemy : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-			SoundManager.instance.PlaySound(SoundManager.Sounds.ENEMY_EXPLOSION);
+            gameController.AddScore(worth);
+            SoundManager.instance.PlaySound(SoundManager.Sounds.ENEMY_EXPLOSION);
             DropEnergy(amountToDrop);
             Destroy(gameObject);
         }
